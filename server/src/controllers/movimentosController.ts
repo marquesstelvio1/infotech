@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { eq } from "drizzle-orm";
 import { db } from "../db";
-import { movimentos, produtos } from "../../../database/schema";
+import { movimentos, produtos } from "../schema";
 import { AuthRequest } from "./auth";
 
 // GET /api/movimentos

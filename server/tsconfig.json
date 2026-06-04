@@ -3,23 +3,16 @@
     "target": "ES2020",
     "module": "CommonJS",
     "lib": ["ES2020"],
-    "rootDir": "..",
+    "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "baseUrl": ".",
-    "paths": {
-      "drizzle-orm": ["node_modules/drizzle-orm"],
-      "drizzle-orm/*": ["node_modules/drizzle-orm/*"]
-    },
-    "types": ["node"]
+    "resolveJsonModule": true
   },
   "include": [
-    "src/**/*.ts",
-    "../database/schema.ts"
+    "src/**/*.ts"
   ],
   "exclude": ["node_modules", "dist"]
 }

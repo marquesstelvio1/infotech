@@ -3,7 +3,7 @@ import { eq } from "drizzle-orm";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { db } from "../db";
-import { utilizadores } from "../../../database/schema";
+import { utilizadores } from "../schema";
 import { AuthRequest } from "../middlewares/auth";
 
 // POST /api/auth/login
