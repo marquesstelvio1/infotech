@@ -39,3 +39,15 @@ npm run client
 
 Crie um arquivo `.env` local com as configuracoes necessarias, como `DATABASE_URL` e `JWT_SECRET`.
 O `.env` nao deve ser enviado ao repositorio.
+
+## Deploy no Render
+
+Para publicar o backend como Web Service no Render:
+
+- Runtime: Node
+- Build Command: `npm run build`
+- Start Command: `npm start`
+- Health Check Path: `/health`
+- Node: `20` definido em `.node-version` e em `package.json`
+
+Configure no Render as variaveis `DATABASE_URL`, `JWT_SECRET` e, se necessario, `CLIENT_URL`.
