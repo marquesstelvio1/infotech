@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: infotech-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+
+  - type: web
+    name: infotech-web
+    runtime: static
+    buildCommand: npm run build:client
+    staticPublishPath: dist
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: VITE_API_URL
+        sync: false

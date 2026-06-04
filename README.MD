@@ -58,6 +58,8 @@ Backend como Web Service:
 - Build Command: `npm run build`
 - Start Command: `npm start`
 - Health Check Path: `/health`
-- Node: `20` definido em `.node-version` e em `package.json`
+- Node: `20` definido em `.node-version`, `server/.node-version`, `package.json` e `render.yaml`
 
 No backend, configure as variaveis `DATABASE_URL`, `JWT_SECRET` e `CLIENT_URL`.
+
+Tambem existe um `render.yaml` na raiz para criar os servicos por Blueprint no Render.
