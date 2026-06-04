@@ -48,7 +48,7 @@ export default function Vendas() {
       doc.setFontSize(11);
       doc.text(`Total: ${Number(venda.totalVenda).toFixed(2)} Kz`, 40, finalY + 30);
       doc.text(`Pagamento: ${venda.paymentMethod ?? '—'}`, 40, finalY + 45);
-      doc.text(`Atendente: ${venda.atendente?.nome ?? venda.vendedor?.nome ?? '—'}`, 40, finalY + 60);
+      doc.text(`Atendente: ${venda.atendente?.nome ?? '—'}`, 40, finalY + 60);
 
       doc.save(`fatura-${venda.id}.pdf`);
     } catch (err) {
@@ -95,7 +95,7 @@ export default function Vendas() {
                 <td className="px-4 py-3 text-slate-300">{v.itensVenda?.reduce((sum, item) => sum + item.quantidade, 0) ?? "—"}</td>
                 <td className="px-4 py-3 text-slate-300 capitalize">{v.paymentMethod ?? "—"}</td>
                 <td className="px-4 py-3 font-medium text-slate-100 text-right">{Number(v.totalVenda).toFixed(2)} Kz</td>
-                <td className="px-4 py-3 text-slate-300">{v.atendente?.nome ?? v.vendedor?.nome ?? "—"}</td>
+                <td className="px-4 py-3 text-slate-300">{v.atendente?.nome ?? "—"}</td>
                 <td className="px-4 py-3 text-right">
                   <button onClick={() => gerarFatura(v.id)} className="text-cyan-400 hover:underline text-sm">Fatura</button>
                 </td>

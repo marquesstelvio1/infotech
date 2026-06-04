@@ -126,6 +126,7 @@ export default function Produtos() {
       setError('Falha ao gerar o relatório do produto.');
     }
   };
+  void gerarRelatorioProduto;
 
   const abrirEditar = (p: Produto) => {
     setForm(p);
@@ -185,7 +186,7 @@ export default function Produtos() {
     if (stockValue < 0) { setError("O stock não pode ser negativo."); return; }
     if (stockValue > precoVendaValue) { setError("O stock não pode ultrapassar o preço de venda."); return; }
 
-    const payload = {
+    const payload: Partial<Produto> = {
       nome: form.nome,
       categoria: form.categoria,
       marca: form.marca,
@@ -355,11 +356,11 @@ export default function Produtos() {
               <div className="flex gap-2">
                 <div className="flex-1 flex flex-col gap-1">
                   <label className="text-sm">Stock</label>
-                  <input type="number" min={0} placeholder="Stock" value={form.stock ?? ''} onChange={(e) => setForm({ ...form, stock: e.target.value === '' ? '' : Number(e.target.value) })} className="w-full bg-slate-900 text-slate-100 px-2 py-2 rounded border border-slate-700" />
+                  <input type="number" min={0} placeholder="Stock" value={form.stock ?? ''} onChange={(e) => setForm({ ...form, stock: e.target.value === '' ? undefined : Number(e.target.value) })} className="w-full bg-slate-900 text-slate-100 px-2 py-2 rounded border border-slate-700" />
                 </div>
                 <div className="flex-1 flex flex-col gap-1">
                   <label className="text-sm">Preço Venda</label>
-                  <input type="number" placeholder="Preço Venda *" value={form.precoVenda ?? ''} onChange={(e) => setForm({ ...form, precoVenda: e.target.value === '' ? '' : Number(e.target.value) })} className="w-full bg-slate-900 text-slate-100 px-2 py-2 rounded border border-slate-700 text-right" />
+                  <input type="number" placeholder="Preço Venda *" value={form.precoVenda ?? ''} onChange={(e) => setForm({ ...form, precoVenda: e.target.value === '' ? undefined : Number(e.target.value) })} className="w-full bg-slate-900 text-slate-100 px-2 py-2 rounded border border-slate-700 text-right" />
                 </div>
               </div>
 

@@ -42,12 +42,21 @@ O `.env` nao deve ser enviado ao repositorio.
 
 ## Deploy no Render
 
-Para publicar o backend como Web Service no Render:
+O projeto pode ser publicado como dois servicos no Render.
+
+Frontend como Static Site:
+
+- Runtime: Static Site
+- Build Command: `npm run build`
+- Publish Directory: `dist`
+- Variavel obrigatoria: `VITE_API_URL` apontando para a URL do backend com `/api`
+
+Backend como Web Service:
 
 - Runtime: Node
-- Build Command: `npm run build`
+- Build Command: `npm run build:server`
 - Start Command: `npm start`
 - Health Check Path: `/health`
 - Node: `20` definido em `.node-version` e em `package.json`
 
-Configure no Render as variaveis `DATABASE_URL`, `JWT_SECRET` e, se necessario, `CLIENT_URL`.
+No backend, configure as variaveis `DATABASE_URL`, `JWT_SECRET` e `CLIENT_URL`.

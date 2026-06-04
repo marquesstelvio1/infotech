@@ -13,6 +13,8 @@ interface ItemForm {
   precoUnitario: number;
 }
 
+type PaymentMethod = "dinheiro" | "cartao" | "transferencia";
+
 export default function NovaVenda() {
   const navigate = useNavigate();
   const [produtos, setProdutos] = useState<Produto[]>([]);
@@ -21,11 +23,11 @@ export default function NovaVenda() {
   const [form, setForm] = useState({
     compradorNome: "",
     observacoes: "",
-    paymentMethod: "dinheiro",
+    paymentMethod: "dinheiro" as PaymentMethod,
   });
   const [itens, setItens] = useState<ItemForm[]>([]);
   const [scannerStatus, setScannerStatus] = useState("A carregar câmara...");
-  const [scanError, setScanError] = useState<string | null>(null);
+  const [scanError] = useState<string | null>(null);
   const [lastScan, setLastScan] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const scannerRef = useRef<any | null>(null);
@@ -277,7 +279,7 @@ export default function NovaVenda() {
                       key={option.value}
                       type="button"
                       onClick={() => {
-                        setForm({ ...form, paymentMethod: option.value });
+                        setForm({ ...form, paymentMethod: option.value as PaymentMethod });
                         if (option.value !== "dinheiro") setPaymentAmount(0);
                       }}
                       className={`rounded-2xl border px-3 py-2 text-sm font-medium transition ${

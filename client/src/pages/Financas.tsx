@@ -8,7 +8,6 @@ import { DollarSign, FileText, Download, TrendingUp } from "lucide-react";
 import api from "../services/api";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
-import heroImg from "../assets/hero.png";
 import ProductCard from "../components/ProductCard";
 
 export default function Financas() {
@@ -118,7 +117,6 @@ export default function Financas() {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF('landscape', 'pt', 'a4');
         const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = pdf.internal.pageSize.getHeight();
         // scale image to fit width
         const imgProps = (pdf as any).getImageProperties(imgData);
         const imgWidth = pdfWidth;
@@ -209,7 +207,7 @@ export default function Financas() {
               <XAxis dataKey="date" tick={{ fill: "#9ca3af", fontSize: 11 }} />
               <YAxis tick={{ fill: "#9ca3af", fontSize: 11 }} />
               <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" />
-              <Tooltip formatter={(value: number) => value.toLocaleString("pt-PT", { minimumFractionDigits: 2 }) + " Kz"} />
+              <Tooltip formatter={(value) => `${Number(value ?? 0).toLocaleString("pt-PT", { minimumFractionDigits: 2 })} Kz`} />
               <Legend />
               <Area type="monotone" dataKey="receitas" stroke="#3b82f6" fillOpacity={1} fill="url(#colorRec)" dot={CustomDot} />
               <Area type="monotone" dataKey="despesas" stroke="#ef4444" fillOpacity={1} fill="url(#colorDesp)" dot={{ stroke: '#ef4444', strokeWidth: 2 }} />

@@ -17,8 +17,8 @@ export interface Produto {
   numeroSerie?: string;
   estado: "disponivel" | "indisponivel" | "vendido" | "reservado";
   stock: number;
-  precoCompra?: string;
-  precoVenda: string;
+  precoCompra?: string | number;
+  precoVenda: string | number;
   qrCode: string;
   observacoes?: string;
   createdAt: string;
