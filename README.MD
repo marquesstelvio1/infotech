@@ -54,7 +54,8 @@ Frontend como Static Site:
 Backend como Web Service:
 
 - Runtime: Node
-- Build Command: `npm run build:server`
+- Root Directory: `server`
+- Build Command: `npm run build`
 - Start Command: `npm start`
 - Health Check Path: `/health`
 - Node: `20` definido em `.node-version` e em `package.json`
